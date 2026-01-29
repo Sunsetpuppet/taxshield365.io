@@ -194,7 +194,6 @@ def main():
                 st.success("Admin Active")
                 bypass_payment = st.checkbox("Bypass Payment Gateway", value=True)
 
-    st.title("🛡️ TaxShield '26")
     st.markdown("### Did the IRS miss your Overtime Exemption?")
     st.info("New 2025 Laws: No Tax on Tips (up to $25k) & No Tax on Overtime Premium.")
     st.write("---")
