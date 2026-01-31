@@ -20,7 +20,7 @@ def maintenance_lock():
     if pwd != PASSWORD:
         st.stop()
 
-maintenance_lock()
+# maintenance_lock()
 
 # =========================
 # ⏱ RATE LIMITING
