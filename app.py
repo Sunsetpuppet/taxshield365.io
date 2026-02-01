@@ -162,7 +162,8 @@ def create_stripe_session(ot_val, dt_val, tips_val):
         )
         return session.id, session.url
     except Exception as e:
-        return None, None
+    st.error(f"⚠️ STRIPE ERROR: {e}")  # <--- This will print the real problem
+    return None, None
 
 def check_payment_status(session_id, current_ot, current_dt, current_tips):
     stripe.api_key = st.secrets["STRIPE_API_KEY"]
