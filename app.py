@@ -152,7 +152,7 @@ def create_stripe_session(ot_val, dt_val, tips_val):
             payment_method_types=['card'],
             # --- USING YOUR LIVE PRODUCT ID ---
             line_items=[{
-                'price': 'price_1Pxxxxxxxxxxxxxxxxxxxxxx',  # <--- 🚨 PASTE YOUR ID HERE 🚨
+                'price': 'price_1SuP4sEHfkgHgdDFmTa78q2f',  # <--- 🚨 PASTE YOUR ID HERE 🚨
                 'quantity': 1,
             }],
             mode='payment',
