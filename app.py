@@ -152,7 +152,7 @@ def create_stripe_session(ot_val, dt_val, tips_val):
             payment_method_types=['card'],
             # --- USING YOUR LIVE PRODUCT ID ---
             line_items=[{
-                'price': 'price_1SuP4sEHfkgHgdDFmTa78q2f',
+                'price': 'price_1SuP4sEHfkgHgdDFmTa78q2f', # <--- 🚨 PASTE YOUR NEW LIVE ID HERE
                 'quantity': 1,
             }],
             mode='payment',
@@ -195,8 +195,6 @@ def reset_payment():
 
 # --- 4. MAIN UI ---
 def main():
-    admin_secret = st.secrets.get("ADMIN_PASSWORD", "admin2025") 
-    
     # Initialize Session States
     if 'stripe_session_id' not in st.session_state: st.session_state['stripe_session_id'] = None
     if 'stripe_url' not in st.session_state: st.session_state['stripe_url'] = None
@@ -207,19 +205,9 @@ def main():
     try: query_params = st.query_params
     except: query_params = st.experimental_get_query_params()
     
-    is_admin_url = "admin" in query_params
-    
     if "session_id" in query_params:
         st.session_state['stripe_session_id'] = query_params["session_id"]
     
-    bypass_payment = False
-    if is_admin_url:
-        with st.sidebar:
-            st.header("🔧 Developer Mode")
-            if st.text_input("Admin Password", type="password") == admin_secret:
-                st.success("Admin Active")
-                bypass_payment = st.checkbox("Bypass Payment Gateway", value=True)
-
     st.title("🛡️ TaxShield 365")
     st.markdown("### Did the IRS miss your Overtime Exemption?")
     st.info("New 2025 Laws: No Tax on Tips (up to $25k) & No Tax on Overtime Premium.")
@@ -303,45 +291,40 @@ def main():
                     st.markdown("### ~~**$89**~~") 
                     st.caption("CPA Cost")
                 with col_p2:
-                    if bypass_payment:
-                        if st.button("🔓 UNLOCK (ADMIN BYPASS)", type="primary"):
-                            st.session_state['paid'] = True
-                            st.rerun()
+                    # 1. CREATE SESSION
+                    if st.session_state['stripe_url'] is None:
+                            session_id, session_url = create_stripe_session(ot_gross, dt_gross, tips_capped)
+                            if session_id:
+                                st.session_state['stripe_session_id'] = session_id
+                                st.session_state['stripe_url'] = session_url
+                    
+                    # 2. SHOW LINK
+                    if st.session_state['stripe_url']:
+                        st.markdown(f"### 👉 [CLICK HERE TO PAY $39.99]({st.session_state['stripe_url']})")
                     else:
-                        # 1. CREATE SESSION
-                        if st.session_state['stripe_url'] is None:
-                             session_id, session_url = create_stripe_session(ot_gross, dt_gross, tips_capped)
-                             if session_id:
-                                 st.session_state['stripe_session_id'] = session_id
-                                 st.session_state['stripe_url'] = session_url
-                        
-                        # 2. SHOW LINK
-                        if st.session_state['stripe_url']:
-                            st.markdown(f"### 👉 [CLICK HERE TO PAY $39.99]({st.session_state['stripe_url']})")
-                        else:
-                            st.error("Unable to connect to Payment Gateway. Please refresh.")
-                        
-                        st.write("")
-                        
-                        # 3. VERIFY
-                        if st.button("I have completed payment"):
-                            with st.spinner("Verifying Transaction..."):
-                                sid_to_check = st.session_state.get('stripe_session_id')
-                                if not sid_to_check:
-                                    st.error("❌ No active payment session found.")
+                        st.error("Unable to connect to Payment Gateway. Please refresh.")
+                    
+                    st.write("")
+                    
+                    # 3. VERIFY
+                    if st.button("I have completed payment"):
+                        with st.spinner("Verifying Transaction..."):
+                            sid_to_check = st.session_state.get('stripe_session_id')
+                            if not sid_to_check:
+                                st.error("❌ No active payment session found.")
+                            else:
+                                is_paid, reason = check_payment_status(sid_to_check, ot_gross, dt_gross, tips_capped)
+                                
+                                if is_paid:
+                                    st.success("Payment Confirmed!")
+                                    st.session_state['paid'] = True
+                                    st.rerun()
+                                elif reason == "Mismatch":
+                                    st.error("🚨 **Security Alert:** Data mismatch.")
+                                    st.error("Please click 'Unlock' again to generate a secure link.")
+                                    reset_payment()
                                 else:
-                                    is_paid, reason = check_payment_status(sid_to_check, ot_gross, dt_gross, tips_capped)
-                                    
-                                    if is_paid:
-                                        st.success("Payment Confirmed!")
-                                        st.session_state['paid'] = True
-                                        st.rerun()
-                                    elif reason == "Mismatch":
-                                        st.error("🚨 **Security Alert:** Data mismatch.")
-                                        st.error("Please click 'Unlock' again to generate a secure link.")
-                                        reset_payment()
-                                    else:
-                                        st.error("❌ Payment not found. Please complete checkout first.")
+                                    st.error("❌ Payment not found. Please complete checkout first.")
 
 if __name__ == "__main__":
-    main()
+    main()    
