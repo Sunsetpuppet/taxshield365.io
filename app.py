@@ -265,7 +265,7 @@ def main():
         total_exempt = ot_exempt + dt_exempt + tips_capped
         est_refund = total_exempt * 0.22 
 
-st.write("---")
+        st.write("---")
         st.subheader("📊 Final Result")
         m1, m2 = st.columns(2)
         
