@@ -265,10 +265,16 @@ def main():
         total_exempt = ot_exempt + dt_exempt + tips_capped
         est_refund = total_exempt * 0.22 
 
-        st.write("---")
+st.write("---")
         st.subheader("📊 Final Result")
         m1, m2 = st.columns(2)
-        m1.metric("Total Tax-Exempt", f"${total_exempt:,.2f}")
+        
+        # --- HIDDEN UNTIL PAID ---
+        if st.session_state['paid']:
+            m1.metric("Total Tax-Exempt", f"${total_exempt:,.2f}")
+        else:
+            m1.metric("Total Tax-Exempt", "****.**", help="Unlock to see your specific deduction amount.") 
+            
         m2.metric("Est. Refund Increase", f"${est_refund:,.2f}", delta="YOUR MONEY")
         st.write("---")
         
