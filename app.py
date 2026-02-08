@@ -252,12 +252,22 @@ def main():
         else:
             st.markdown(":red[**Please confirm these numbers match your paystub exactly.**]")
         
-        c1, c2, c3 = st.columns(3)
-        
-        # Use safe_float for security
-        with c1: ot_gross = st.number_input("Overtime YTD (Gross)", value=safe_float(data.get('ytd_overtime_income')), format="%.2f", disabled=is_locked, on_change=reset_payment)
-        with c2: dt_gross = st.number_input("Double Time YTD (Gross)", value=safe_float(data.get('ytd_double_time_income')), format="%.2f", disabled=is_locked, on_change=reset_payment)
-        with c3: tips = st.number_input("Tips YTD", value=safe_float(data.get('ytd_tip_income')), format="%.2f", disabled=is_locked, on_change=reset_payment)
+     # --- NEW LAYOUT: OT/DT on Top, Tips Below ---
+        c1, c2 = st.columns(2)
+        with c1: 
+            ot_gross = st.number_input("Overtime YTD (Gross)", value=safe_float(data.get('ytd_overtime_income')), format="%.2f")
+        with c2: 
+            dt_gross = st.number_input("Double Time YTD (Gross)", value=safe_float(data.get('ytd_double_time_income')), format="%.2f")
+
+        st.caption("🍸 **Service Industry Check** (Look at W-2 Box 7 & 8)")
+        c3, c4 = st.columns(2)
+        with c3:
+            tips_reported = st.number_input("Social Security Tips (Box 7)", value=safe_float(data.get('ytd_tip_income')), format="%.2f")
+        with c4:
+            tips_allocated = st.number_input("Allocated Tips (Box 8)", value=0.00, format="%.2f", help="Check Box 8 on your W-2. Many servers miss this!")
+
+        # Combine them so the rest of your app works automatically
+        tips = tips_reported + tips_allocated
 
         ot_exempt = ot_gross / 3.0
         dt_exempt = dt_gross / 4.0
