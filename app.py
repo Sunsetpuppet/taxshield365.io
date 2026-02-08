@@ -290,8 +290,14 @@ def main():
                      st.rerun()
             
             else:
-                st.warning("⚠️ **Protect Yourself from Audit.**")
-                st.markdown(f"Unlock the **IRS Evidence Packet** to claim your **${est_refund:,.0f}** refund.")
+                st.error("🛑 **STOP: Do Not File Without Proof.**")
+                st.markdown(f"""
+        **The IRS automated system flags high deductions.** If you claim this **${est_refund:,.0f}** refund without a certified audit trail, you are at high risk of being flagged.
+        
+        The **TaxShield Evidence Packet** is your forensic proof. It shows the IRS exactly *how* your exemption was calculated, line-by-line, protecting you from audits and penalties.
+        
+        **Don't guess. Be audit-proof.**
+        """)
                 col_p1, col_p2 = st.columns([1, 2])
                 with col_p1:
                     st.markdown("### ~~**$89**~~") 
