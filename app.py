@@ -103,7 +103,6 @@ def create_audit_pdf(data, ot_gross, dt_gross, tips, ot_exempt, dt_exempt, total
     pdf.set_font("Arial", 'B', 16)
     pdf.cell(200, 10, txt="Forensic Tax Audit Report (2025)", ln=True, align='C')
     pdf.set_font("Arial", size=10)
-    st.error("🚨 **LIMITED TIME: Get your complete Audit Evidence Packet for only $9.99!**")
     pdf.cell(200, 10, txt="Compliant with 2025 'Premium Only' & Tip Deduction Rules", ln=True, align='C')
     pdf.ln(10)
     
@@ -211,6 +210,7 @@ def main():
     
     st.title("🛡️ TaxShield 365")
     st.markdown("### Did the IRS miss your Overtime Exemption?")
+    st.error("🚨 **LIMITED TIME: Get your complete Audit Evidence Packet for only $9.99!**")
     st.info("New 2025 Laws: No Tax on Tips (up to $25k) & No Tax on Overtime Premium.")
     st.write("---")
 
