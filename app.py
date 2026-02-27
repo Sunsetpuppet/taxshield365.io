@@ -152,7 +152,7 @@ def create_stripe_session(ot_val, dt_val, tips_val):
             payment_method_types=['card'],
             # --- USING YOUR LIVE PRODUCT ID ---
             line_items=[{
-                'price': 'price_1SwIGmEHfkgHgdDFALUKoJfh', # <--- 🚨 PASTE YOUR NEW LIVE ID HERE
+                'price': 'price_1T5IvmEHfkgHgdDFbUh5bLgq', # <--- 🚨 PASTE YOUR NEW LIVE ID HERE
                 'quantity': 1,
             }],
             mode='payment',
@@ -322,7 +322,7 @@ def main():
                     
                     # 2. SHOW LINK
                     if st.session_state['stripe_url']:
-                        st.markdown(f"### 👉 [CLICK HERE TO PAY $39.99]({st.session_state['stripe_url']})")
+                        st.markdown(f"### 👉 [CLICK HERE TO PAY $9.99]({st.session_state['stripe_url']})")
                     else:
                         st.error("Unable to connect to Payment Gateway. Please refresh.")
                     
