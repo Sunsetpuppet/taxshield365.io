@@ -412,8 +412,8 @@ def main():
     st.write("---")
     st.markdown("""
     <div style="background-color: #000000; padding: 20px; border-radius: 10px; text-align: center; border: 1px solid #E8C5C8; margin-top: 30px;">
-        <h4 style="color: #E8C5C8; margin: 0; font-family: sans-serif;">🛡️ TaxShield 365</h4>
-        <p style="color: #E8C5C8; font-size: 12px; opacity: 0.8; margin-top: 5px; margin-bottom: 0;">Secure. Automated. Audit-Proof.</p>
+        <h4 style="color: #E8C5C8 !important; margin: 0; font-family: sans-serif;">🛡️ TaxShield 365</h4>
+        <p style="color: #E8C5C8 !important; font-size: 12px; opacity: 0.8; margin-top: 5px; margin-bottom: 0;">Secure. Automated. Audit-Proof.</p>
     </div>
     """, unsafe_allow_html=True)
 
