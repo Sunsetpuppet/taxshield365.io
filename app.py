@@ -233,6 +233,14 @@ def main():
     st.markdown("### Did the IRS miss your Overtime Exemption?")
     st.error("🚨 **LIMITED TIME: Get your complete Audit Evidence Packet for only $9.99!**")
     st.info("New 2025 Laws: No Tax on Tips (up to $25k) & No Tax on Overtime Premium.")
+    # --- SECURE CHECKOUT TRUST BADGE ---
+    st.markdown("""
+    <div style="display: flex; justify-content: center; align-items: center; gap: 8px; margin-top: 10px; margin-bottom: 10px;">
+        <span style="font-size: 16px; font-weight: bold; color: #000000;">🔒 100% Secure Checkout Guaranteed by</span>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg" width="65" style="margin-top: 2px;">
+    </div>
+    """, unsafe_allow_html=True)
+   
     st.write("---")
     # --- THE AUDIT-PROOF JOURNEY DIAGRAM ---
     st.write("### **Why You Need the Audit Evidence Packet**")
