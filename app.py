@@ -215,9 +215,14 @@ def main():
         .stApp {
             background-color: #E8C5C8 !important; 
         }
-        /* This forces all text, headers, and input labels to be black */
-        h1, h2, h3, h4, h5, h6, p, span, label, .stMarkdown {
+        /* This forces all standard text, headers, and labels to be black */
+        h1, h2, h3, h4, h5, h6, p, span, label, summary, .stMarkdown {
             color: #000000 !important;
+        }
+        /* This specifically targets the Upload Expander box to make it readable */
+        [data-testid="stExpander"] details summary p {
+            color: #000000 !important;
+            font-weight: bold !important;
         }
     </style>
     
