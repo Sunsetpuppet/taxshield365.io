@@ -408,5 +408,14 @@ def main():
                                 else:
                                     st.error("❌ Payment not found. Please complete checkout first.")
 
+    # --- FOOTER BANNER ---
+    st.write("---")
+    st.markdown("""
+    <div style="background-color: #F0F0F0; padding: 15px; border-radius: 10px; text-align: center; border: 1px solid #333333; margin-top: 30px;">
+        <h4 style="color: #333333; margin: 0; font-family: sans-serif;">🛡️ TaxShield 365</h4>
+        <p style="color: #666666; font-size: 12px; margin-top: 5px; margin-bottom: 0;">Secure. Automated. Audit-Proof.</p>
+    </div>
+    """, unsafe_allow_html=True)
+
 if __name__ == "__main__":
     main()
