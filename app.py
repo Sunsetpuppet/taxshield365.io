@@ -208,7 +208,7 @@ def main():
     if "session_id" in query_params:
         st.session_state['stripe_session_id'] = query_params["session_id"]
     
-    # --- CUSTOM THEME: ROSE GOLD BACKGROUND & GREY BANNER ---
+    # --- CUSTOM THEME: ROSE GOLD BACKGROUND & SKY BLUE BANNER ---
     st.markdown("""
     <style>
         /* This changes the entire background to a soft Rose Gold */
@@ -219,15 +219,15 @@ def main():
         h1, h2, h3, h4, h5, h6, p, span, label, summary, .stMarkdown {
             color: #000000 !important;
         }
-        /* This specifically targets the Upload Expander box to make it readable */
+        /* This specifically targets the Upload Expander box */
         [data-testid="stExpander"] details summary p {
             color: #000000 !important;
             font-weight: bold !important;
         }
     </style>
     
-    <div style="background-color: #F0F0F0; padding: 20px; border-radius: 10px; text-align: center; margin-bottom: 20px; border: 1px solid #333333;">
-        <h1 style="color: #333333; margin: 0; font-family: sans-serif;">🛡️ TaxShield 365</h1>
+    <div style="background-color: #87CEEB; padding: 20px; border-radius: 10px; text-align: center; margin-bottom: 20px; border: 1px solid #333333;">
+        <h1 style="color: #000000 !important; margin: 0; font-family: 'Times New Roman', Times, serif; font-weight: bold; letter-spacing: 1px;">🛡️ TAXSHIELD 365</h1>
     </div>
     """, unsafe_allow_html=True)
     st.markdown("### Did the IRS miss your Overtime Exemption?")
