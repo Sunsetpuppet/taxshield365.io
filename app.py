@@ -213,6 +213,10 @@ def main():
     st.error("🚨 **LIMITED TIME: Get your complete Audit Evidence Packet for only $9.99!**")
     st.info("New 2025 Laws: No Tax on Tips (up to $25k) & No Tax on Overtime Premium.")
     st.write("---")
+    # --- THE AUDIT-PROOF JOURNEY DIAGRAM ---
+    st.write("### **Why You Need the Audit Evidence Packet**")
+    st.image("52tax365.png", use_container_width=True)
+    st.write("---")
 
     # --- UPLOAD SECTION ---
     is_locked = st.session_state['paid']
