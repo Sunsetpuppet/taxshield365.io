@@ -208,7 +208,19 @@ def main():
     if "session_id" in query_params:
         st.session_state['stripe_session_id'] = query_params["session_id"]
     
-    st.title("🛡️ TaxShield 365")
+    # --- CUSTOM THEME: ROSE GOLD BACKGROUND & GREY BANNER ---
+    st.markdown("""
+    <style>
+        /* This changes the entire background to a soft Rose Gold */
+        .stApp {
+            background-color: #E8C5C8 !important; 
+        }
+    </style>
+    
+    <div style="background-color: #F0F0F0; padding: 20px; border-radius: 10px; text-align: center; margin-bottom: 20px; border: 1px solid #333333;">
+        <h1 style="color: #333333; margin: 0; font-family: sans-serif;">🛡️ TaxShield 365</h1>
+    </div>
+    """, unsafe_allow_html=True)
     st.markdown("### Did the IRS miss your Overtime Exemption?")
     st.error("🚨 **LIMITED TIME: Get your complete Audit Evidence Packet for only $9.99!**")
     st.info("New 2025 Laws: No Tax on Tips (up to $25k) & No Tax on Overtime Premium.")
