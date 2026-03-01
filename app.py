@@ -246,6 +246,15 @@ def main():
     st.write("### **Why You Need the Audit Evidence Packet**")
     st.image("52tax365.png", use_container_width=True)
     st.write("---")
+    # --- DEVELOPER NOTE ---
+    st.markdown("""
+    <div style="background-color: #ffffff; padding: 20px; border-left: 5px solid #ff4b4b; border-radius: 5px; margin-bottom: 25px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+        <p style="font-size: 16px; font-style: italic; color: #333333; margin: 0; line-height: 1.5;">
+        "A quick note from the developer: We built TaxShield 365 because we saw too many hard-working people missing out on their rightful exemptions for tips and overtime. We are a brand-new app dedicated to helping you keep exactly what you've earned. We have many more features on the way, but for now, our main goal is to solve your tip and overtime headaches safely and securely. Thank you for trusting us!"
+        <br><br><span style="font-weight: bold; color: #000000;">— The TaxShield 365 Team</span>
+        </p>
+    </div>
+    """, unsafe_allow_html=True)
 
     # --- UPLOAD SECTION ---
     is_locked = st.session_state['paid']
