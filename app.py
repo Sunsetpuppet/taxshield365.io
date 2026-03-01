@@ -411,9 +411,9 @@ def main():
     # --- FOOTER BANNER ---
     st.write("---")
     st.markdown("""
-    <div style="background-color: #000000; padding: 20px; border-radius: 10px; text-align: center; border: 1px solid #E8C5C8; margin-top: 30px;">
-        <h4 style="color: #E8C5C8 !important; margin: 0; font-family: sans-serif;">🛡️ TaxShield 365</h4>
-        <p style="color: #E8C5C8 !important; font-size: 12px; opacity: 0.8; margin-top: 5px; margin-bottom: 0;">Secure. Automated. Audit-Proof.</p>
+    <div style="background-color: #87CEEB; padding: 20px; border-radius: 10px; text-align: center; border: 1px solid #333333; margin-top: 30px;">
+        <h4 style="color: #000000 !important; margin: 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: bold; letter-spacing: 1px;">🛡️ TAXSHIELD 365</h4>
+        <p style="color: #333333 !important; font-size: 13px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; margin-top: 5px; margin-bottom: 0; font-weight: 500;">SECURE • AUTOMATED • AUDIT-PROOF</p>
     </div>
     """, unsafe_allow_html=True)
 
