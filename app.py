@@ -215,6 +215,10 @@ def main():
         .stApp {
             background-color: #E8C5C8 !important; 
         }
+        /* This forces all text, headers, and input labels to be black */
+        h1, h2, h3, h4, h5, h6, p, span, label, .stMarkdown {
+            color: #000000 !important;
+        }
     </style>
     
     <div style="background-color: #F0F0F0; padding: 20px; border-radius: 10px; text-align: center; margin-bottom: 20px; border: 1px solid #333333;">
