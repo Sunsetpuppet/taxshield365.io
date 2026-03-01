@@ -252,14 +252,31 @@ def main():
     
     with st.container():
         with st.expander("📂 Upload Paystub", expanded=(st.session_state['report_data'] is None)):
+            
+            # Privacy Policy Dropdown
+            with st.expander("📄 Read Privacy Policy & Terms"):
+                st.caption("""
+                **Data Processing & Privacy:** By uploading your document, you consent to having your paystub analyzed by our secure, automated system to calculate tax-exempt premium pay. 
+                - **No Storage:** We do not permanently store, sell, or share your paystub images. 
+                - **Secure Processing:** Data is processed securely via encrypted API solely for generating your Audit Evidence Packet.
+                - **Payments:** Payment processing is securely handled by Stripe. We do not see or store your credit card information.
+                """)
+
             with st.form("scan_form", clear_on_submit=False):
                 uploaded_file = st.file_uploader("Upload Final 2025 Paystub", type=['png', 'jpg', 'jpeg'], disabled=is_locked)
+                
+                # MANDATORY CONSENT CHECKBOX
+                consent = st.checkbox("I agree to the Privacy Policy and consent to my paystub being securely processed.", disabled=is_locked)
+                
                 submitted = st.form_submit_button("🚀 Run Forensic Scan", disabled=is_locked)
                 
                 if submitted:
                     reset_payment() 
                     
-                    if not uploaded_file:
+                    # NEW RULE: Check for consent first!
+                    if not consent:
+                        st.error("🛑 You must check the consent box to run the scan.")
+                    elif not uploaded_file:
                         st.error("⚠️ Please select a file first.")
                     # SECURITY: Size Limit
                     elif uploaded_file.size > MAX_FILE_SIZE:
