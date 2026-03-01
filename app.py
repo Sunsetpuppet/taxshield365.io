@@ -250,7 +250,7 @@ def main():
     st.markdown("""
     <div style="background-color: #ffffff; padding: 20px; border-left: 5px solid #ff4b4b; border-radius: 5px; margin-bottom: 25px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
         <p style="font-size: 16px; font-style: italic; color: #333333; margin: 0; line-height: 1.5;">
-        "A quick note from the developer: We built TaxShield 365 because we saw too many hard-working people missing out on their rightful exemptions for tips and overtime. We are a brand-new app dedicated to helping you keep exactly what you've earned. We have many more features on the way, but for now, our main goal is to solve your tip and overtime headaches safely and securely. Thank you for trusting us!"
+        "A quick note from the developer: We built TaxShield 365 to give you absolute peace of mind after you hit 'submit' on your tax return. Claiming tip and overtime exemptions can trigger IRS automated flags, which is why our main goal is to make sure you are 100% audit-safe <strong>after</strong> you file. We generate the exact forensic proof the IRS looks for, so you never have to stress about a future audit notice. As a brand-new app, we have many more features on the way, but right now we are fully dedicated to protecting your hard-earned refund. Thank you for trusting us!"
         <br><br><span style="font-weight: bold; color: #000000;">— The TaxShield 365 Team</span>
         </p>
     </div>
