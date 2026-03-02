@@ -273,10 +273,14 @@ def main():
     # --- SINGLE FILE OFFICIAL EVIDENCE ---
     with st.expander("🔍 View Official IRS Notice 2025-69 (Full Document)"):
         try:
-            # Change the filename below to match exactly what you named it on GitHub
-            st.image("irs_notice_full.jpg", caption="irs_notice.pdf")
+            # This is the professional way to embed a PDF in your app
+            import base64
+            with open("irs_notice.pdf", "rb") as f:
+                base64_pdf = base64.b64encode(f.read()).decode('utf-8')
+            pdf_display = f'<embed src="data:application/pdf;base64,{base64_pdf}" width="100%" height="800" type="application/pdf">'
+            st.markdown(pdf_display, unsafe_allow_html=True)
         except Exception:
-            st.warning("⚠️ IRS Evidence document is loading. Please refresh in 60 seconds.")
+            st.warning("⚠️ IRS Evidence document is loading. Please ensure 'irs_notice.pdf' is uploaded to GitHub and refresh.")
     # --- UPLOAD SECTION ---
     is_locked = st.session_state['paid']
     
