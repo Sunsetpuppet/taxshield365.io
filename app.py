@@ -255,22 +255,26 @@ def main():
         </p>
     </div>
     """, unsafe_allow_html=True)
-    # --- OFFICIAL IRS GUIDANCE SECTION ---
+    # --- CORRECTED OFFICIAL IRS GUIDANCE SECTION ---
     st.markdown("""
     <div style="background-color: #f8f9fa; padding: 15px; border: 1px solid #333333; border-radius: 8px; margin-bottom: 25px;">
         <p style="font-family: 'Times New Roman', Times, serif; color: #000000; margin: 0; font-size: 14px;">
             <span style="font-weight: bold; color: #b22222;">🏛️ OFFICIAL LEGAL VERIFICATION:</span><br>
-            The 2025 Tax Relief for American Workers and Families Act provides specific exemptions for "Qualified Service Industry Income." 
-            Under <strong>Section 102 (Exclusion of Tips)</strong> and <strong>Section 105 (Overtime Premium Credits)</strong>, 
-            taxpayers are eligible for significant federal tax exclusions.
+            Under the <strong>'One, Big, Beautiful Bill'</strong> (Tax Years 2025-2028), workers are eligible for specific federal tax deductions for tips and overtime compensation. 
+            <strong>IRS Notice 2025-69</strong> clarifies how to calculate these deductions without receiving a separate accounting from employers.
         </p>
         <div style="margin-top: 10px; text-align: center;">
-            <a href="https://www.irs.gov/newsroom" target="_blank" style="color: #0000EE; text-decoration: underline; font-family: 'Times New Roman', Times, serif; font-weight: bold;">
-                Click here to verify 2025 Guidance on IRS.gov
+            <a href="https://www.irs.gov/newsroom/treasury-irs-provide-guidance-for-individuals-who-received-tips-or-overtime-during-tax-year-2025" target="_blank" style="color: #0000EE; text-decoration: underline; font-family: 'Times New Roman', Times, serif; font-weight: bold;">
+                View Official IRS Notice 2025-69 (.gov)
             </a>
         </div>
     </div>
     """, unsafe_allow_html=True)
+    col1, col2 = st.columns(2)
+    with col1:
+        st.image("irs_tips.png", caption="IRS Guidance: Tips")
+    with col2:
+        st.image("irs_overtime.png", caption="IRS Guidance: Overtime")
     # --- UPLOAD SECTION ---
     is_locked = st.session_state['paid']
     
