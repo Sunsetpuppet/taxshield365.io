@@ -274,7 +274,7 @@ def main():
     with st.expander("🔍 View Official IRS Notice 2025-69 (Full Document)"):
         try:
             # Change the filename below to match exactly what you named it on GitHub
-            st.image("irs_notice_full.jpg", caption="Treasury, IRS provide guidance for individuals who received tips or overtime during tax year 2025 _ Internal Revenue Service.pdf")
+            st.image("irs_notice_full.jpg", caption="irs_notice.pdf")
         except Exception:
             st.warning("⚠️ IRS Evidence document is loading. Please refresh in 60 seconds.")
     # --- UPLOAD SECTION ---
