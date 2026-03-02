@@ -270,11 +270,13 @@ def main():
         </div>
     </div>
     """, unsafe_allow_html=True)
-    # --- OFFICIAL EVIDENCE GALLERY ---
-    with st.expander("🔍 View Full 3-Page Official IRS Notice 2025-69"):
-        st.image("irs_page1.jpg", caption="IRS Notice 2025-69 - Page 1: Tips & Phase-outs")
-        st.image("irs_page2.jpg", caption="IRS Notice 2025-69 - Page 2: Overtime Premium Guidance")
-        st.image("irs_page3.jpg", caption="IRS Notice 2025-69 - Page 3: Additional Technical Provisions")
+    # --- SINGLE FILE OFFICIAL EVIDENCE ---
+    with st.expander("🔍 View Official IRS Notice 2025-69 (Full Document)"):
+        try:
+            # Change the filename below to match exactly what you named it on GitHub
+            st.image("irs_notice_full.jpg", caption="Treasury, IRS provide guidance for individuals who received tips or overtime during tax year 2025 _ Internal Revenue Service.pdf")
+        except Exception:
+            st.warning("⚠️ IRS Evidence document is loading. Please refresh in 60 seconds.")
     # --- UPLOAD SECTION ---
     is_locked = st.session_state['paid']
     
