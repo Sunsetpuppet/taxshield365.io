@@ -270,11 +270,11 @@ def main():
         </div>
     </div>
     """, unsafe_allow_html=True)
-    col1, col2 = st.columns(2)
-    with col1:
-        st.image("irs_tips.png", caption="IRS Guidance: Tips")
-    with col2:
-        st.image("irs_overtime.png", caption="IRS Guidance: Overtime")
+    # --- OFFICIAL EVIDENCE GALLERY ---
+    with st.expander("🔍 View Full 3-Page Official IRS Notice 2025-69"):
+        st.image("irs_page1.jpg", caption="IRS Notice 2025-69 - Page 1: Tips & Phase-outs")
+        st.image("irs_page2.jpg", caption="IRS Notice 2025-69 - Page 2: Overtime Premium Guidance")
+        st.image("irs_page3.jpg", caption="IRS Notice 2025-69 - Page 3: Additional Technical Provisions")
     # --- UPLOAD SECTION ---
     is_locked = st.session_state['paid']
     
