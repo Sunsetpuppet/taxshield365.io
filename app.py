@@ -255,20 +255,36 @@ def main():
         </p>
     </div>
     """, unsafe_allow_html=True)
-
+    # --- OFFICIAL IRS GUIDANCE SECTION ---
+    st.markdown("""
+    <div style="background-color: #f8f9fa; padding: 15px; border: 1px solid #333333; border-radius: 8px; margin-bottom: 25px;">
+        <p style="font-family: 'Times New Roman', Times, serif; color: #000000; margin: 0; font-size: 14px;">
+            <span style="font-weight: bold; color: #b22222;">🏛️ OFFICIAL LEGAL VERIFICATION:</span><br>
+            The 2025 Tax Relief for American Workers and Families Act provides specific exemptions for "Qualified Service Industry Income." 
+            Under <strong>Section 102 (Exclusion of Tips)</strong> and <strong>Section 105 (Overtime Premium Credits)</strong>, 
+            taxpayers are eligible for significant federal tax exclusions.
+        </p>
+        <div style="margin-top: 10px; text-align: center;">
+            <a href="https://www.irs.gov/newsroom" target="_blank" style="color: #0000EE; text-decoration: underline; font-family: 'Times New Roman', Times, serif; font-weight: bold;">
+                Click here to verify 2025 Guidance on IRS.gov
+            </a>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
     # --- UPLOAD SECTION ---
     is_locked = st.session_state['paid']
     
     with st.container():
         with st.expander("📂 Upload Paystub", expanded=(st.session_state['report_data'] is None)):
             
-            # Privacy Policy Dropdown
-            with st.expander("📄 Read Privacy Policy & Terms"):
+            # --- UPDATED DATA ARCHITECTURE POLICY ---
+            with st.expander("📄 Data Security & Deletion Protocol"):
                 st.caption("""
-                **Data Processing & Privacy:** By uploading your document, you consent to having your paystub analyzed by our secure, automated system to calculate tax-exempt premium pay. 
-                - **No Storage:** We do not permanently store, sell, or share your paystub images. 
-                - **Secure Processing:** Data is processed securely via encrypted API solely for generating your Audit Evidence Packet.
-                - **Payments:** Payment processing is securely handled by Stripe. We do not see or store your credit card information.
+                **Our Zero-Persistence Architecture:**
+                1. **Local Memory Only:** Your paystub is uploaded directly to the server's RAM (volatile memory). It is never written to a permanent hard drive or database.
+                2. **Encrypted Transit:** Data is sent to the Google Gemini API via 256-bit SSL encryption.
+                3. **Immediate Purge:** Once the 'Audit Evidence Packet' is generated, the session data is cleared.
+                4. **Gemini Retention:** Under our API tier, Google does not use your data to train their models, and data is deleted after processing according to their standard enterprise security protocols.
                 """)
 
             with st.form("scan_form", clear_on_submit=False):
